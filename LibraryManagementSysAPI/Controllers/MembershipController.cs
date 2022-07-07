@@ -1,5 +1,8 @@
-﻿using LibraryManagementSysAPI.Models;
+﻿using AutoMapper;
+using LibraryManagementSysAPI.ExceptionLogs;
+using LibraryManagementSysAPI.Models;
 using LibraryManagementSysAPI.Repositories;
+using LibraryManagementSysAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +12,7 @@ namespace LibraryManagementSysAPI.Controllers
     [ApiController]
     public class MembershipController : BaseController<Membership>
     {
-        public MembershipController(IRepository<Membership> irepository) : base(irepository)
+        public MembershipController(IService<Membership> repo, ILogger logger, IMapper mapper) : base(repo, logger, mapper)
         {
         }
     }

@@ -1,4 +1,7 @@
-﻿using LibraryManagementSysAPI.Models;
+﻿using AutoMapper;
+using LibraryManagementSysAPI.ExceptionLogs;
+using LibraryManagementSysAPI.Models;
+using LibraryManagementSysAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +11,7 @@ namespace LibraryManagementSysAPI.Controllers
     [ApiController]
     public class LibraryController : BaseController<Library>
     {
-        public LibraryController(Repositories.IRepository<Library> irepository) : base(irepository)
+        public LibraryController(IService<Library> repo, ILogger logger, IMapper mapper) : base(repo, logger, mapper)
         {
         }
     }
